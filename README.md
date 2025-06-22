@@ -16,6 +16,8 @@ Ce projet simule et visualise la figure d’interférences obtenue dans un monta
 ## Exemple de résultat
 
 <img src="inter_sin.png" alt="Exemple de fractale" width="300"/>
+<img src="inter_gauss.png" alt="Exemple de fractale" width="300"/>
+
 
 ## Dépendances
 

@@ -7,7 +7,7 @@ import numpy as np
 
 f = 0.5 #en m Focale de la lentille
 D = 0.45 #en m Distance écran lentille
-wavelength = 600 #en m Longueur d'onde de la source
+wavelength = 520 #en m Longueur d'onde de la source
 L = 0.5 #en m Dimension du miroir
 I0 = 1
 
@@ -47,6 +47,21 @@ def Miroir_sin():
         return dz*np.sin(x+y)
     return optic_path
 
+def Miroir_cos():
+    global dz
+    dz = 0.01
+    def optic_path(x,y):
+        return dz*np.cos(x+y)
+    return optic_path
+
+def Miroir_sinc():
+    global dz
+    dz = 0.01
+    def optic_path(x,y):
+        r = np.sqrt(x**2 + y**2)
+        return dz*np.sinc(r/(L/2))  # Utilisation de la fonction sinc normalisée
+    return optic_path
+
 def Intensite(xp, yp, optic_path):
     """
     Calcule l'intensité lumineuse de deux rayons lumineux dans un interféromètre de Michelson avec un miroir déformé.
@@ -62,7 +77,7 @@ def Intensite(xp, yp, optic_path):
 
 ### Affichage
 
-optic_path = Miroir_sin() #On définie la déformation étudiée
+optic_path = Miroir_sinc() #On définie la déformation étudiée
 n,m = 1000,1000
 X = np.linspace(-L/2,L/2,n)*(f-D)/f #Discrétise le miroir
 Y = np.linspace(-L/2,L/2,m)*(f-D)/f
@@ -155,14 +170,15 @@ def afficher_colormap(array, X, Y, couleur_max, title="Figure d'interférences")
     plt.imshow(array, cmap=cmap_custom, aspect='auto', extent=extent, origin='lower')
     
     # Ajouter une barre de couleur à droite pour la légende
-    plt.colorbar(label="Intensité")
-    
+    cbar = plt.colorbar(label="Intensité", orientation='vertical', fraction=0.046, pad=0.04)
+    cbar.ax.yaxis.label.set_fontsize(14)
+
     # Ajouter des labels sur les axes
-    plt.xlabel("x (en m)")
-    plt.ylabel("y (en m)")
+    plt.xlabel("x (en m)", fontsize = 14)
+    plt.ylabel("y (en m)", fontsize = 14)
     
     # Ajouter un titre
-    plt.title(title)
+    plt.title(title, fontsize = 16)
     
     # Afficher la figure
     plt.show()
