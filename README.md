@@ -1,32 +1,30 @@
-# Simulation d’interférences dans une lame d’air déformée
+# Simulation of Interference in a Deformed Air Wedge
 
-Ce projet simule et visualise la figure d’interférences obtenue dans un montage de type Michelson, où l’un des miroirs présente des défauts (déformations). Le code calcule l’intensité lumineuse résultant de la superposition de deux ondes, en tenant compte de la différence de marche induite par la déformation du miroir.
+This project simulates and visualizes the interference pattern obtained in a Michelson-type setup, where one of the mirrors has defects (deformations). The code calculates the light intensity resulting from the superposition of two waves, taking into account the path difference induced by the mirror deformation.
 
-## Principe
+## Principle
 
-- **Montage** : Un interféromètre de Michelson avec une source monochromatique éclaire une lame d’air. Un miroir est parfait, l’autre présente des défauts (échelon, gaussien, sinusoïdal).
-- **Calcul** : Pour chaque point de l’écran, le code calcule la différence de marche optique due à la déformation du miroir, puis l’intensité résultante par interférence.
-- **Affichage** : La figure d’interférences est affichée sous forme de colormap, la couleur maximale correspondant à la longueur d’onde choisie.
+-**Setup**: A Michelson interferometer with a monochromatic light source illuminating an air wedge. One mirror is perfect, while the other has defects (step, Gaussian, sinusoidal).
 
-## Utilisation
+-**Computation**: For each point on the screen, the code computes the optical path difference caused by the mirror deformation, then the resulting intensity due to interference.
 
-1. Exécute `lamedair.py` pour générer et afficher la figure d’interférences.
-2. Tu peux modifier la forme du miroir déformé en changeant la fonction utilisée (`Miroir_echelon`, `Miroir_gauss`, `Miroir_sin`).
+-**Display**: The interference pattern is displayed as a colormap, with the maximum color corresponding to the selected wavelength.
 
-## Exemple de résultat
+## Usage
 
-<div style="display: flex; gap: 10px;">
-  <img src="inter_sin.png" alt="Interférence sinusoïdale" width="300"/>
-  <img src="inter_gauss.png" alt="Interférence gaussienne" width="300"/>
-</div>
+1. Run lamedair.py to generate and display the interference pattern.
 
+2. You can modify the shape of the deformed mirror by changing the function used (Miroir_echelon, Miroir_gauss, Miroir_sin).
 
-## Dépendances
+## Example Output
+<div style="display: flex; gap: 10px;"> <img src="inter_sin.png" alt="Sinusoidal interference" width="300"/> <img src="inter_gauss.png" alt="Gaussian interference" width="300"/> </div>
 
-- Python 3
-- numpy
-- matplotlib
+## Dependencies
 
-## Auteur
+-Python 3
+-numpy
+-matplotlib
+
+## Author
 
 BATAILLE Ewan
