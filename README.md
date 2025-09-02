@@ -22,7 +22,9 @@ This project simulates and visualizes the interference pattern obtained in a Mic
 ## Dependencies
 
 -Python 3
+
 -numpy
+
 -matplotlib
 
 ## Author
